@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Home from './Home'
 import './App.css';
+import Port from "./Port"
 
 
 export default class App extends React.Component {
@@ -38,18 +39,18 @@ export default class App extends React.Component {
         </p>
               <Router>
                 <Link onClick={this.handleClick}
-                  exact to="/Home"
+                  exact to="/Port"
                   className="App-link"
                 > Enter Here
                <Switch>
-                    <Route exact path="/Home" component={Home} />
+                    <Route exact path="/Port" component={Port} />
                   </Switch>
                 </Link>
               </Router>
             </header>
           </div >) :
           (<div>
-            <Home />
+            <Port />
           </div>)
         }
       </div>
