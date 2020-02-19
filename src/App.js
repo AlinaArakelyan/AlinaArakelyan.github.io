@@ -1,30 +1,64 @@
 import React from 'react';
 import logo from './logo.png';
-import { NavLink } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import Home from './Home'
 import './App.css';
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        Ruby, Rails, SQL, Postgresql, JavaScript, React, Redux, Git, CSS, HTML5, ActiveRecord
+export default class App extends React.Component {
+
+  state = {
+    clicked: false
+  }
+
+  handleClick = () => {
+    this.setState({
+      clicked: true
+    })
+  }
+
+
+
+
+  render() {
+    const isClicked = this.state.clicked
+    return (
+      <div>
+        {!isClicked ?
+          (< div className="App" >
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <p>
+                Ruby, Rails, SQL, Postgresql, JavaScript, React, Redux, Git, CSS, HTML5, ActiveRecord
         </p>
-        <NavLink
-          exact to="/Home"
-          className="App-link"
-          // target="_blank"
-        >
-          Enter
-          </NavLink>
-      </header>
-    </div>
-  );
+              <Router>
+                <Link onClick={this.handleClick}
+                  exact to="/Home"
+                  className="App-link"
+                > Enter Here
+               <Switch>
+                    <Route exact path="/Home" component={Home} />
+                  </Switch>
+                </Link>
+              </Router>
+            </header>
+          </div >) :
+          (<div>
+            <Home />
+          </div>)
+        }
+      </div>
+
+    )
+}
 }
 
-export default App;
+
 
 // <SideNav
 //     onSelect={(selected) => {
