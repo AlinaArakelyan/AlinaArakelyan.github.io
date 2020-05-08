@@ -1,15 +1,8 @@
 import React from 'react';
 import logo from './logo.png';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-} from 'react-router-dom';
-import Home from './Home'
+import {BrowserRouter as Router, Link, Route, Switch,} from 'react-router-dom';
 import './App.css';
 import Port from "./Port"
-
 
 export default class App extends React.Component {
 
@@ -22,10 +15,6 @@ export default class App extends React.Component {
       clicked: true
     })
   }
-
-
-
-
   render() {
     const isClicked = this.state.clicked
     return (
